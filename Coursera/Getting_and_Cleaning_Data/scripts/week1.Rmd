@@ -1,0 +1,27 @@
+---
+title: "week1"
+author: "Jiang Li"
+date: "February 16, 2015"
+output: html_document
+---
+
+## Question 1
+
+The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: 
+
+```{r q1}
+if(!file.exists("data")){
+  dir.create(path = "data")
+}
+destOut="data/survey.csv"
+url1 = "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+download.file(url = url1,destfile = destOut,method = "curl")
+
+dat<-read.csv(file = destOut)
+
+sum(dat$FINCP > 1000000,na.rm = TRUE)
+
+dat$FES
+```
+
+d
